@@ -7,11 +7,22 @@ def randomWord():
     secret_word = random.choice(DICTIONARY)
     len_secret_word = len(secret_word)
 
+    # I need the word to be like a list
+
     gameEngine(secret_word, len_secret_word)
 
 def gameEngine(secret_word, len_secret_word):
     os.system('clear')
     print(f"Length --> {len_secret_word}")
+
+    tries = 10
+
+    while True:
+        if tries <= 0:
+            break
+        else:
+            usr_word = str(input("--> "))
+
 
 def main():
     try:
