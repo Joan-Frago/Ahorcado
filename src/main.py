@@ -38,7 +38,7 @@ def gameEngine(secret_word_lst, len_secret_word):
             for index, i in enumerate(secret_word_lst):
                 for j in try_word:
                     if j == i:
-                        # I have to use the number of position in usr_word to make it equal to j
+                        # Here I use the number of position in usr_word to make it equal to j
                         usr_word[index] = j
                     else:
                         continue
@@ -47,9 +47,18 @@ def gameEngine(secret_word_lst, len_secret_word):
                 print("Congratulations! YOU WON!")
                 break
             else:
-                print(usr_word)
+                # Here I convert the list to string and print that string
+                usr_word_str = ""
+                for elem in usr_word:
+                    usr_word_str += elem
+                
+                print(usr_word_str)
+
                 tries -= 1
-                print(f"You have {tries} tries left")
+                if tries > 1:
+                    print(f"You have {tries} tries left")
+                else:
+                    print(f"You have {tries} try left")
                 continue
 
 def main():
