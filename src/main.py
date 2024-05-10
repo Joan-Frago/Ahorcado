@@ -16,7 +16,6 @@ def randomWord():
 
 def gameEngine(secret_word_lst, len_secret_word):
     os.system('clear')
-    print(secret_word_lst)
     print(f"Length --> {len_secret_word}")
 
     tries = 10
@@ -28,6 +27,7 @@ def gameEngine(secret_word_lst, len_secret_word):
     while True:
         if tries == 0:
             print("Oh! You ran out of tries.")
+            print(f"The correct answer was {secret_word_lst}")
             break
         else:
             try_word = str(input("--> "))
