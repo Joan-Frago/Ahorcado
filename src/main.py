@@ -6,29 +6,54 @@ DICTIONARY = ["a","ability","able","about","above","accept","according","account
 def randomWord():
     secret_word = random.choice(DICTIONARY)
     len_secret_word = len(secret_word)
+    secret_word_lst = []
 
     # I need the word to be like a list
+    for letter in secret_word:
+        secret_word_lst.append(letter)
 
-    gameEngine(secret_word, len_secret_word)
+    gameEngine(secret_word_lst, len_secret_word)
 
-def gameEngine(secret_word, len_secret_word):
+def gameEngine(secret_word_lst, len_secret_word):
     os.system('clear')
+    print(secret_word_lst)
     print(f"Length --> {len_secret_word}")
 
     tries = 10
+    usr_word = []
+
+    for i in range(len_secret_word):
+        usr_word.append("_")
 
     while True:
-        if tries <= 0:
+        if tries == 0:
+            print("Oh! You ran out of tries.")
             break
         else:
-            usr_word = str(input("--> "))
+            try_word = str(input("--> "))
 
+            # Aquí compararé el que posa l'usuari i la secret_word
+            # He de comparar posició per posició les dues llistes
+
+            for index, i in enumerate(secret_word_lst):
+                for j in try_word:
+                    if j == i:
+                        # I have to use the number of position in usr_word to make it equal to j
+                        usr_word[index] = j
+                    else:
+                        continue
+            
+            if usr_word == secret_word_lst:
+                print("Congratulations! YOU WON!")
+                break
+            else:
+                print(usr_word)
+                tries -= 1
+                print(f"You have {tries} tries left")
+                continue
 
 def main():
-    try:
-        randomWord()
-    except:
-        print("Something's wrong, try again later")
+    randomWord()
 
 if __name__ == "__main__":
     main()
