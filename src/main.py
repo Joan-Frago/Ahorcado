@@ -65,7 +65,7 @@ def gameEngine(secret_word_lst, len_secret_word):
             
             # If both lists are the same, the user wins and the loop breaks
             if usr_word == secret_word_lst:
-                print(usr_word)
+                print(usr_word_str)
                 print("Congratulations! YOU WON!")
                 break
             elif try_word in secret_word_lst:
