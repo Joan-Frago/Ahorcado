@@ -19,6 +19,7 @@ def gameEngine(secret_word_lst, len_secret_word):
 
     tries = 10
     usr_word = []
+    tried_letters = ""
 
     for i in range(len_secret_word):
         usr_word.append("_")
@@ -39,6 +40,10 @@ def gameEngine(secret_word_lst, len_secret_word):
                 print(f"You have {tries} tries left")
             else:
                 print(f"You have {tries} try left")
+
+            # Here I print the letters that the user has tried
+            if tried_letters != "":
+                print(tried_letters)
 
             # Here I convert the list to string and print that string
             usr_word_str = ""
@@ -67,6 +72,10 @@ def gameEngine(secret_word_lst, len_secret_word):
                 continue
             else:
                 tries -= 1
+                if tried_letters == "":
+                    tried_letters += try_word
+                else:
+                    tried_letters += f", {try_word}"
 
 def main():
     randomWord()
